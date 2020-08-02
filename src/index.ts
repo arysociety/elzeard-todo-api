@@ -23,9 +23,7 @@ export const checkAndGetUserWithAccessToken = async (req: express.Request, res: 
     next()
 }
 
-
 const todoRoutes = (server: express.Express) => {
-
     const { schemaValidator } = todos.expressTools().middleware()
     const { postHandler, putHandler } = todos.expressTools().request()
 

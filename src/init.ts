@@ -1,7 +1,7 @@
 import express from 'express'
 import formData from 'express-form-data'
 import morgan from 'morgan'
-import { config } from 'silvio'
+import { config } from 'elzeard'
 
 export const initServer = async () => {
     const server = express()
@@ -14,12 +14,12 @@ export const initServer = async () => {
       next();
     });
 
-    config.setHistoryDirPath('./yeca-history')
+    config.setHistoryDirPath('./history')
     config.setMySQLConfig({
-        host: '185.212.226.103',
-        user: 'root',
-        password: 'fH95b88kCE!',
-        database: 'yeca'
+        host: '',
+        user: '',
+        password: '',
+        database: 'elzeard'
     })
     await config.done()
     return server

@@ -1,4 +1,4 @@
-import { Joi, Collection, Model  } from 'silvio'
+import { Joi, Collection, Model  } from 'elzeard'
 import { v4 as uuidv4 } from 'uuid';
 
 const ACCESS_TOKEN_VALIDITY_SECOND = 3600 * 24 * 30 //30 days

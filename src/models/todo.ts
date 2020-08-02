@@ -1,4 +1,4 @@
-import { Joi, Collection, Model  } from 'silvio'
+import { Joi, Collection, Model  } from 'elzeard'
 
 export class TodoModel extends Model {
 
@@ -6,7 +6,7 @@ export class TodoModel extends Model {
         id: Joi.number().autoIncrement().primaryKey(),
         content: Joi.string().min(1).max(400).default(''),
         created_at: Joi.date().default(() => new Date()),
-        user: Joi.number().foreignKey('users', 'id', 'todo')
+        user: Joi.number().foreignKey('users', 'id', 'todo').deleteCascade()
     })
 
     constructor(initialState: any, options: any){

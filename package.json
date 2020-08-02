@@ -6,6 +6,16 @@
   "scripts": {
     "start": "tsc && node ./dist/index.js"
   },
+  "dependencies": {
+    "@types/hapi__joi": "^17.1.4",
+    "@types/lodash": "^4.14.158",
+    "@types/uuid": "^8.0.0",
+    "elzeard": "^1.1.1",
+    "express-form-data": "^2.0.14",
+    "lodash": "^4.17.19",
+    "morgan": "^1.10.0",
+    "uuid": "^8.3.0"
+  },
   "devDependencies": {
     "@types/express": "^4.17.7",
     "@types/express-form-data": "^2.0.1",
@@ -14,15 +24,5 @@
     "nodemon": "^2.0.4",
     "tslint": "^6.1.2",
     "typescript": "^3.9.7"
-  },
-  "dependencies": {
-    "@types/lodash": "^4.14.158",
-    "@types/uuid": "^8.0.0",
-    "express-form-data": "^2.0.14",
-    "joi-to-sql": "/Users/louis/projects/joi-mysql-2",
-    "lodash": "^4.17.19",
-    "morgan": "^1.10.0",
-    "silvio": "/Users/louis/Acey/acey-back-v3",
-    "uuid": "^8.3.0"
   }
 }

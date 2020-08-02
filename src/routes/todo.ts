@@ -17,9 +17,15 @@ export default (server: express.Express) => {
 
     server.put('/todo/:id', schemaValidator, putHandler(['content'], 'todo'))
 
+
     server.get('/todo', async (req, res) => {
-        const list = await todos.quick().pull()
-        res.json(list.local().to().plain())
+        const collection = await todos.quick().pull()
+        res.json(
+            collection.local().
+            orderBy(['created_at'], ['desc']).
+            to().
+            filterGroup('todo').plain()
+        )
     })
 
     server.get('/todo/:id', async (req, res) => {

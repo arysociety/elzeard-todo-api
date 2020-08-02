@@ -8,9 +8,15 @@ export default (server: express.Express) => {
 
     server.post('/user', schemaValidator(), postHandler(['email']))
 
-    server.put('/user/:id', checkAndGetUserWithAccessToken, schemaValidator(), putHandler(['email']))
+    server.put('/user', checkAndGetUserWithAccessToken, schemaValidator(), putHandler(['email']))
 
-    server.get('/user/:id', checkAndGetUserWithAccessToken, async (req, res) => {
+    server.delete('/user', checkAndGetUserWithAccessToken, (req, res) => {
+        const user = res.locals.user as UserModel
+        user.destroy()
+        res.sendStatus(200)
+    })
+
+    server.get('/user', checkAndGetUserWithAccessToken, async (req, res) => {
         const user = res.locals.user as UserModel
         res.json(user.to().plain())
     })
