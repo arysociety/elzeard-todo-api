@@ -1,4 +1,3 @@
-import express from 'express'
 import { initServer } from './init'
 import {initRoutes} from './routes'
 
