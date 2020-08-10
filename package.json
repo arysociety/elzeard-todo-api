@@ -10,7 +10,7 @@
     "@types/hapi__joi": "^17.1.4",
     "@types/lodash": "^4.14.158",
     "@types/uuid": "^8.0.0",
-    "elzeard": "^1.1.1",
+    "elzeard": "^1.1.4",
     "express-form-data": "^2.0.14",
     "lodash": "^4.17.19",
     "morgan": "^1.10.0",
