@@ -6,9 +6,9 @@ export default (server: express.Express) => {
     const { schemaValidator } = users.expressTools().middleware()
     const { postHandler, putHandler } = users.expressTools().request()
 
-    server.post('/user', schemaValidator(), postHandler(['email']))
+    server.post('/user', schemaValidator, postHandler(['email']))
 
-    server.put('/user', checkAndGetUserWithAccessToken, schemaValidator(), putHandler(['email']))
+    server.put('/user', checkAndGetUserWithAccessToken, schemaValidator, putHandler(['email']))
 
     server.delete('/user', checkAndGetUserWithAccessToken, (req, res) => {
         const user = res.locals.user as UserModel

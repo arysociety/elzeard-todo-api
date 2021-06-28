@@ -9,7 +9,7 @@ export default (server: express.Express) => {
     const { schemaValidator } = todos.expressTools().middleware()
     const { postHandler, putHandler } = todos.expressTools().request()
 
-    server.post('/todo', schemaValidator(), checkAndGetUserWithAccessToken, (req: express.Request, res: express.Response, next: express.NextFunction) => {
+    server.post('/todo', schemaValidator, checkAndGetUserWithAccessToken, (req: express.Request, res: express.Response, next: express.NextFunction) => {
         const user = res.locals.user as UserModel
         req.body = Object.assign(req.body, {user: user.ID()})
         next()
@@ -19,17 +19,18 @@ export default (server: express.Express) => {
 
 
     server.get('/todo', async (req, res) => {
-        const collection = await todos.quick().pull()
+        const collection = await todos.quick().pull().run()
         res.json(
             collection.local().
             orderBy(['created_at'], ['desc']).
+            local().
             to().
             filterGroup('todo').plain()
         )
     })
 
     server.get('/todo/:id', async (req, res) => {
-        const m = await todos.quick().fetch(req.params.id)
+        const m = await todos.quick().find(req.params.id)
         if (!m)
             res.sendStatus(404)
         else 

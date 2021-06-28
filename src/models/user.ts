@@ -26,7 +26,7 @@ export class UserCollection extends Collection {
         super(initialState, [UserModel, UserCollection], options)
     }
 
-    fetchByToken = async (token: string) => token ? await this.quick().fetch({access_token: token}) : null
+    fetchByToken = async (token: string) => token ? await this.quick().find({access_token: token}) : null
 }
 
 

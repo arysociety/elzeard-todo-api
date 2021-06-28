@@ -16,10 +16,10 @@ export const initServer = async () => {
 
     config.setHistoryDirPath('./history')
     config.setMySQLConfig({
-        host: '',
-        user: '',
-        password: '',
-        database: 'elzeard'
+      host: '',
+      user: '',
+      password: '',
+      database: 'todo'
     })
     await config.done()
     return server
